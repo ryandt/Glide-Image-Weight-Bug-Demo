@@ -16,6 +16,7 @@ import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
+import com.bumptech.glide.integration.compose.placeholder
 import com.example.glideimageweightbugdemo.ui.theme.changeSizeIfZero
 
 /***
@@ -50,11 +51,11 @@ fun ImageGrid(
                         .weight(1f, false)
                         .changeSizeIfZero(topStartImageSize),
                     model = getSizedImageUrl(grid.topStart, topStartImageSize.value),
+                    loading = placeholder(placeholderImage),
+                    failure = placeholder(placeholderImage),
                     contentDescription = null,
                     contentScale = ContentScale.Crop,
-                ) {
-                    it.placeholder(placeholderImage)
-                }
+                )
             }
             if (grid.bottomStart != null) {
                 key(grid.bottomStart) {
@@ -65,11 +66,11 @@ fun ImageGrid(
                             .changeSizeIfZero(bottomStartSize)
                             .padding(top = 2.dp),
                         model = getSizedImageUrl(grid.bottomStart, bottomStartSize.value),
+                        loading = placeholder(placeholderImage),
+                        failure = placeholder(placeholderImage),
                         contentDescription = null,
                         contentScale = ContentScale.Crop,
-                    ) {
-                        it.placeholder(placeholderImage)
-                    }
+                    )
                 }
             }
         }
@@ -86,11 +87,11 @@ fun ImageGrid(
                             .weight(1f, false)
                             .changeSizeIfZero(topEndImageSize),
                         model = getSizedImageUrl(grid.topEnd, topEndImageSize.value),
+                        loading = placeholder(placeholderImage),
+                        failure = placeholder(placeholderImage),
                         contentDescription = null,
                         contentScale = ContentScale.Crop,
-                    ) {
-                        it.placeholder(placeholderImage)
-                    }
+                    )
                 }
                 if (grid.bottomEnd != null) {
                     key(grid.bottomEnd) {
@@ -101,11 +102,11 @@ fun ImageGrid(
                                 .padding(top = 2.dp)
                                 .changeSizeIfZero(bottomEndImageSize),
                             model = getSizedImageUrl(grid.bottomEnd, bottomEndImageSize.value),
+                            loading = placeholder(placeholderImage),
+                            failure = placeholder(placeholderImage),
                             contentDescription = null,
                             contentScale = ContentScale.Crop,
-                        ) {
-                            it.placeholder(placeholderImage)
-                        }
+                        )
                     }
                 }
             }
